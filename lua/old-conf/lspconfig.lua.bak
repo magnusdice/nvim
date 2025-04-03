@@ -1,0 +1,101 @@
+return {
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"clangd",
+					"phpactor",
+					"html",
+					"ts_ls",
+					"eslint",
+					"htmx",
+					"intelephense",
+					"cssls",
+					"stimulus_ls",
+				},
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+			local lspconfig = require("lspconfig")
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" }, -- Recognize 'vim' as a global variable
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime files
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+			lspconfig.phpactor.setup({
+				capabilities = capabilities,
+				cmd = {
+					"phpactor",
+					"language-server",
+					"-vvv",
+				},
+				filetypes = { "php" },
+			})
+			lspconfig.stimulus_ls.setup({
+				capabilities = capabilities,
+				cmd = { "stimulus-language-server", "--stdio" },
+				filetypes = { "php", "html" },
+			})
+
+			lspconfig.html.setup({
+				capabilities = capabilities,
+				filetypes = {
+					"templ",
+					"html",
+					"php",
+					"css",
+				},
+			})
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.intelephense.setup({
+				capabilities = capabilities,
+			})
+
+			-- Diagnostic Config (for error/warnings)
+			vim.diagnostic.config({
+				virtual_text = true, -- Show inline errors and warnings in the text
+				signs = true, -- Show error/warning signs in the gutter
+				underline = true, -- Underline text with errors/warnings
+				update_in_insert = false, -- Disable diagnostics in insert mode
+				severity_sort = true, -- Sort by severity (error, warning, info)
+				float = {
+					border = "single", -- Use a border for floating windows
+				},
+			})
+
+			-- Keymappings
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
+}
