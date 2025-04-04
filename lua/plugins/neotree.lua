@@ -9,7 +9,22 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
-		-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+	},
+	window = {
+		position = "left",
+		width = 140,
+		mapping_options = {
+			noremap = true,
+			nowait = true,
+		},
+		filesystem = {
+			filtered_items = {
+				visible = true,
+				hide_dotfiles = false, -- show files starting with a dot
+				hide_gitignored = false,
+				hide_hidden = true, -- only works on Windows for hidden files/directories
+			},
+		},
 	},
 	lazy = false, -- neo-tree will lazily load itself
 	---@module "neo-tree"
