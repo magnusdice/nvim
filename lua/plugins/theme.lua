@@ -11,7 +11,7 @@ return {
 	},
 	{
 		"vague2k/vague.nvim",
-		enabled = true,
+		enabled = false,
 		name = "vague",
 		priority = 1000,
 		config = function()
@@ -52,7 +52,7 @@ return {
 	},
 	{
 		"rose-pine/neovim",
-		enabled = false,
+		enabled = true,
 		name = "rose-pine",
 		config = function()
 			vim.cmd("colorscheme rose-pine")

@@ -1,6 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	enabled = true,
+	enabled = false,
 	branch = "v3.x",
 	popup_border_style = "rounded",
 	enable_git_status = true,
