@@ -4,7 +4,7 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				php = { "pretty-php" },
+				php = { "pretty-php", "prettierd", "phpcbf" },
 				html = { "prettierd" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
