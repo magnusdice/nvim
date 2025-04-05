@@ -1,3 +1,6 @@
+-- dont know why php lsp not working
+-- and im too lazy to create branch so i make another one
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -28,6 +31,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
+				-- "phpactor",
 				"intelephense",
 				"cssls",
 				"html",
@@ -54,11 +58,18 @@ return {
 						},
 					})
 				end,
+				["intelephense"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.intelephense.setup({
+						capabilities = capabilities,
+						filetypes = { "php" },
+					})
+				end,
 				["emmet_ls"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.emmet_ls.setup({
 						capabilities = capabilities,
-						filetypes = { "html", "php" },
+						filetypes = { "html" },
 					})
 				end,
 				["eslint"] = function()
@@ -85,8 +96,8 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "nvim_lsp" },
+				{ name = "luasnip" }, -- For luasnip users.
 			}, {
 				{ name = "buffer" },
 			}),
