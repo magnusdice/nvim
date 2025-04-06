@@ -68,6 +68,12 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
+			["intelephense"] = function()
+				lspconfig["intelephense"].setup({
+					capabilities = capabilities,
+				})
+			end,
+
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
@@ -83,11 +89,6 @@ return {
 			end,
 			["html"] = function()
 				lspconfig["html"].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["intelephense"] = function()
-				lspconfig["intelephense"].setup({
 					capabilities = capabilities,
 				})
 			end,
