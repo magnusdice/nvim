@@ -1,0 +1,1 @@
+{"dump php":{"prefix":"dump php","body":["echo '<pre>';","var_dump(${1:ft});","echo '<\/pre>';"]}}
