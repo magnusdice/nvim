@@ -38,8 +38,7 @@ return {
 				"eslint",
 				"emmet_ls",
 			},
-			handlers = {
-				function(server_name) -- default handler (optional)
+			handlers = { function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
 					})
