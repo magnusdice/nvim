@@ -6,7 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- php = { "pint", "php_cs_fixer" },
-				php = { "phpcbf" },
+				php = { "phpcbf", "prettierd" },
 				html = { "prettierd" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
