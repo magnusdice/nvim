@@ -14,11 +14,14 @@ return {
 			filters = {
 				dotfiles = true,
 			},
+			modified = {
+				enable = true,
+			},
+			diagnostics = {
+				enable = true,
+			},
 		})
 	end,
-	opts = {
-		modified = true,
-	},
 
 	vim.keymap.set("n", "<C-b>", vim.cmd.NvimTreeToggle),
 }
