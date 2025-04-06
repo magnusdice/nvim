@@ -83,7 +83,6 @@ return {
 						"typescriptreact",
 						"javascriptreact",
 						"css",
-						"php",
 					},
 				})
 			end,
