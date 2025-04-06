@@ -16,6 +16,11 @@ vim.opt.termguicolors = true
 -- keymaps
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader><Tab>", vim.cmd.Ex)
--- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("i", "<C-c>", "<Esc>") -- exit insert mode
 
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- wrapping function
+function ToggleWrap()
+	local wrap = vim.wo.wrap
+	vim.wo.wrap = not wrap
+end
+vim.keymap.set("n", "<leader>ww", ToggleWrap)
