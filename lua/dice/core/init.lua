@@ -15,7 +15,7 @@ vim.opt.termguicolors = true
 
 -- keymaps
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader><Tab>", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader><Tab>", vim.cmd.Ex)
 vim.keymap.set("i", "<C-c>", "<Esc>") -- exit insert mode
 
 -- wrapping function
