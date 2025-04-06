@@ -71,6 +71,7 @@ return {
 			["intelephense"] = function()
 				lspconfig["intelephense"].setup({
 					capabilities = capabilities,
+					filetypes = { "php" },
 				})
 			end,
 
@@ -83,6 +84,7 @@ return {
 						"typescriptreact",
 						"javascriptreact",
 						"css",
+						"php",
 					},
 				})
 			end,
