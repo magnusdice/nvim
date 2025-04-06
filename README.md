@@ -6,6 +6,3 @@ Some plugins i want to try:
 7. https://github.com/rockerBOO/awesome-neovim
 
 TODO: 
-- [] Display unsaved files on nvim-tree
-- [] HTML formatters on php files
-- [] HTML snippets on php files
