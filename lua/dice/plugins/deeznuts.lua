@@ -26,6 +26,7 @@ return {
 	},
 	{
 		"echasnovski/mini.surround",
+		enabled = false,
 		opts = {
 			custom_surroundings = nil,
 			highlight_duration = 500,
