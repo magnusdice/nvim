@@ -90,14 +90,19 @@ return {
 				})
 			end,
 
+			["eslint"] = function()
+				lspconfig["eslint"].setup({
+					capabilities = capabilities,
+					fletypes = { "js" },
+				})
+			end,
+
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"html",
-						"typescriptreact",
-						"javascriptreact",
 						"css",
 						"php",
 					},

@@ -19,7 +19,8 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"html",
-				"ts_ls",
+				-- "ts_ls",
+				"eslint",
 				"cssls",
 				"lua_ls",
 				"intelephense",
