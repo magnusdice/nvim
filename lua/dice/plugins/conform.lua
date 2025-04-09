@@ -6,6 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- php = { "pint", "php_cs_fixer" },
+				css = { "prettierd" },
 				php = { "phpcbf" },
 				html = { "prettierd" },
 				-- Conform will run multiple formatters sequentially
