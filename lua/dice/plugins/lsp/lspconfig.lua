@@ -65,7 +65,22 @@ return {
 			end,
 		})
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+
+		-- for godot, btw to make this to work. You need to have godot running frfr
+		local gdscript_config = {
+			capabilities = capabilities,
+			settings = {},
+		}
+		if vim.fn.has("win32") == 1 then
+			--Require nmap (winget install nmap)
+			gdscript_config["cmd"] = { "ncat", "localhost", os.getnev("GDScript_Port") or "6005" }
+		end
+
+		lspconfig.gdscript.setup(gdscript_config)
+
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			["intelephense"] = function()
@@ -90,6 +105,11 @@ return {
 			end,
 			["html"] = function()
 				lspconfig["html"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["cssls"] = function()
+				lspconfig["cssls"].setup({
 					capabilities = capabilities,
 				})
 			end,
