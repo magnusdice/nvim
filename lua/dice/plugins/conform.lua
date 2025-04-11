@@ -5,18 +5,30 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- php = { "pint", "php_cs_fixer" },
 				css = { "prettierd" },
 				php = { "phpcbf" },
-				html = { "prettierd" },
+				sql = { "sql-formatter" },
+				html = { "prettier" },
 				gd = { "gdtoolkit" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				-- You can customize some of the format options for the filetype (:help conform.format)
 				-- rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
-				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascript = { "prettierd", stop_after_first = true },
 			},
+			-- formatters = {
+			-- 	prettier = {
+			-- 		command = "/usr/local/bin/prettier", -- e.g., /home/dice/.nvm/versions/node/v18.16.0/bin/prettier
+			-- 		args = {
+			-- 			"--stdin-filepath",
+			-- 			"$FILENAME",
+			-- 			"--plugin=@prettier/plugin-php",
+			-- 			"--parser=php",
+			-- 		},
+			-- 		stdin = true,
+			-- 	},
+			-- },
 			format_on_save = {
 				-- These options will be passed to conform.format()
 				timeout_ms = 500,
