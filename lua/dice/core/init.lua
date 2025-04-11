@@ -34,6 +34,12 @@ vim.keymap.set("n", "<C-U>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "10jzz")
 vim.keymap.set("n", "<C-u>", "10kzz")
 
+-- split
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+-- vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
 -- wrapping function
 function ToggleWrap()
 	local wrap = vim.wo.wrap
