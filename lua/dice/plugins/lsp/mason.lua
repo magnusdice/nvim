@@ -22,6 +22,7 @@ return {
 				"cssls",
 				"lua_ls",
 				"intelephense",
+				"psalm",
 				"emmet_ls",
 				"sqls",
 				"eslint",

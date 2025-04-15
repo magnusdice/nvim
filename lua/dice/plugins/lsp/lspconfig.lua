@@ -90,9 +90,9 @@ return {
 				lspconfig["intelephense"].setup({
 					capabilities = capabilities,
 					filetypes = { "php" },
+					cmd = { "intelephense", "--stdio" },
 				})
 			end,
-
 			["eslint"] = function()
 				lspconfig["eslint"].setup({
 					capabilities = capabilities,
