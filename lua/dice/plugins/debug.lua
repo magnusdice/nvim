@@ -20,19 +20,28 @@ return {
 			dapui.close()
 		end
 
-		--godot stuff
-		dap.adapters.godot = {
-			type = "server",
-			host = "127.0.0.1",
-			port = 6006,
+		dap.adapters.php = {
+			type = "executable",
+			command = "node",
+			args = { "/path/to/vscode-php-debug/out/phpDebug.js" },
 		}
 
-		dap.configurations.gdscript = {
-			type = "godot",
-			request = "launch", -- either "launch" or "attach"
-			name = "Launch Main Scene",
-			-- specific to gdscript
-			project = "${workspaceFolder}",
+		dap.configurations.php = {
+			{
+				type = "php",
+				request = "launch",
+				name = "Listen for Xdebug",
+				port = 9000,
+			},
+			{
+				name = "run current script",
+				type = "php",
+				request = "launch",
+				port = 9000,
+				cwd = "${fileDirname}",
+				program = "${file}",
+				runtimeExecutable = "php",
+			},
 		}
 
 		vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
