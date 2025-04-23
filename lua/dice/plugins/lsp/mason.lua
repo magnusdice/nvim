@@ -24,8 +24,8 @@ return {
 				"intelephense",
 				"psalm",
 				"emmet_ls",
-				"sqls",
 				"eslint",
+				"sqls",
 			},
 			-- automatic_installation = true,
 		})

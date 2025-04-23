@@ -69,21 +69,6 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
 
-		-- for godot, btw to make this to work. You need to have godot running frfr
-		local gdscript_config = {
-			capabilities = capabilities,
-			settings = {},
-		}
-		if vim.fn.has("win32") == 1 then
-			--Require nmap (winget install nmap)
-			gdscript_config["cmd"] = { "ncat", "localhost", os.getnev("GDScript_Port") or "6005" }
-		end
-
-		lspconfig.gdscript.setup(gdscript_config)
-		vim.keymap.set("n", "<leader>sg", function()
-			vim.fn.serverstart("127.0.0.1:6004")
-		end, { noremap = true })
-
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			["intelephense"] = function()
