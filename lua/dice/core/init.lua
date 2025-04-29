@@ -1,8 +1,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 
 vim.opt.breakindent = true
@@ -36,7 +36,7 @@ vim.keymap.set("n", "<C-u>", "10kzz", { desc = "Jump 10 U" })
 
 -- split
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
--- vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Make splits equal size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 

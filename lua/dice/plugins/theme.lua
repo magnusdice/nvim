@@ -1,5 +1,15 @@
 return {
 	{
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+		enabled = false,
+		priority = 1000,
+		config = function()
+			--require("catppuccin").setup()
+			vim.cmd.colorscheme("carbonfox")
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		enabled = false,
@@ -10,12 +20,40 @@ return {
 		end,
 	},
 	{
-		"vague2k/vague.nvim",
+		"folke/tokyonight.nvim",
+		name = "tokyonight",
+		enabled = false,
+		priority = 1000,
+		config = function()
+			--require("catppuccin").setup()
+			vim.cmd.colorscheme("tokyonight-night")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
 		enabled = true,
+		name = "kanagawa",
+		config = function()
+			require("kanagawa").setup({
+				transparent = true,
+			})
+			vim.cmd("colorscheme kanagawa-dragon")
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		enabled = false,
+		name = "rose-pine",
+		config = function()
+			vim.cmd("colorscheme rose-pine")
+		end,
+	},
+	{
+		"vague2k/vague.nvim",
+		enabled = false,
 		name = "vague",
 		priority = 1000,
 		config = function()
-			-- NOTE: you do not need to call setup if you don't want to.
 			require("vague").setup({
 				transparent = true,
 				style = {
@@ -48,14 +86,6 @@ return {
 				-- optional configuration here
 			})
 			vim.cmd.colorscheme("vague")
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		enabled = false,
-		name = "rose-pine",
-		config = function()
-			vim.cmd("colorscheme rose-pine")
 		end,
 	},
 }
