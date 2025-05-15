@@ -5,7 +5,6 @@ return {
 		enabled = false,
 		priority = 1000,
 		config = function()
-			--require("catppuccin").setup()
 			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
@@ -15,7 +14,6 @@ return {
 		enabled = false,
 		priority = 1000,
 		config = function()
-			--require("catppuccin").setup()
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
@@ -25,13 +23,12 @@ return {
 		enabled = false,
 		priority = 1000,
 		config = function()
-			--require("catppuccin").setup()
 			vim.cmd.colorscheme("tokyonight-night")
 		end,
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = true,
+		enabled = false,
 		name = "kanagawa",
 		config = function()
 			require("kanagawa").setup({
@@ -50,7 +47,7 @@ return {
 	},
 	{
 		"vague2k/vague.nvim",
-		enabled = false,
+		enabled = true,
 		name = "vague",
 		priority = 1000,
 		config = function()
