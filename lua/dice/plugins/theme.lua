@@ -28,7 +28,7 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = false,
+		enabled = true,
 		name = "kanagawa",
 		config = function()
 			require("kanagawa").setup({
@@ -47,7 +47,7 @@ return {
 	},
 	{
 		"vague2k/vague.nvim",
-		enabled = true,
+		enabled = false,
 		name = "vague",
 		priority = 1000,
 		config = function()
