@@ -26,6 +26,8 @@ return {
 				"emmet_ls",
 				"eslint",
 				"sqls",
+				"jedi_language_server",
+				"djlsp",
 			},
 			-- automatic_installation = true,
 		})

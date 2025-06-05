@@ -71,6 +71,18 @@ return {
 
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
+			["jedi_language_server"] = function()
+				lspconfig["jedi_language_server"].setup({
+					capabilities = capabilities,
+					filetypes = { "python" },
+				})
+			end,
+			["djlsp"] = function()
+				lspconfig["djlsp"].setup({
+					capabilities = capabilities,
+					cmd = { "<path-to-djlsp>" },
+				})
+			end,
 			["intelephense"] = function()
 				lspconfig["intelephense"].setup({
 					capabilities = capabilities,
