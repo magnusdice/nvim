@@ -28,7 +28,7 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = true,
+		enabled = false,
 		name = "kanagawa",
 		config = function()
 			require("kanagawa").setup({
@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"rose-pine/neovim",
-		enabled = false,
+		enabled = true,
 		name = "rose-pine",
 		config = function()
 			vim.cmd("colorscheme rose-pine")
