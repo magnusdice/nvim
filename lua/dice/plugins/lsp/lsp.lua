@@ -3,8 +3,8 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		-- "williamboman/mason.nvim",
-		"mason-org/mason.nvim",
-		"mason-org/mason-lspconfig.nvim",
+		{ "mason-org/mason.nvim", version = "^1.0.0" },
+		{ "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
 		-- "williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
