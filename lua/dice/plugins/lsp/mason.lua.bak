@@ -1,0 +1,96 @@
+return {
+	"williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+	},
+	config = function()
+		local mason = require("mason")
+		local lspconfig = require("lspconfig")
+		local mason_lspconfig = require("mason-lspconfig")
+
+		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
+
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+		})
+
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"intelephense",
+				"eslint",
+				"emmet_ls",
+				"html",
+				"cssls",
+				"lua_ls",
+			},
+			-- automatic_installation = true,
+		})
+
+		mason_lspconfig.setup_handlers({
+			["intelephense"] = function()
+				lspconfig["intelephense"].setup({
+					capabilities = capabilities,
+					filetypes = { "php" },
+					cmd = { "intelephense", "--stdio" },
+				})
+			end,
+			["eslint"] = function()
+				lspconfig["eslint"].setup({
+					capabilities = capabilities,
+					filetypes = { "js" },
+				})
+			end,
+			["emmet_ls"] = function()
+				-- configure emmet language server
+				lspconfig["emmet_ls"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"html",
+						"css",
+						"php",
+					},
+				})
+			end,
+			["html"] = function()
+				lspconfig["html"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"html",
+						"php",
+					},
+				})
+			end,
+			["cssls"] = function()
+				lspconfig["cssls"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["lua_ls"] = function()
+				lspconfig["lua_ls"].setup({
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = { "vim" },
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+						},
+					},
+				})
+			end,
+		})
+	end,
+}
