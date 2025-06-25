@@ -5,9 +5,6 @@ return {
 		local config = require("nvim-treesitter.configs")
 		config.setup({
 			ensure_installed = {
-				"gdscript",
-				"godot_resource",
-				"gdshader",
 				"lua",
 				"vim",
 				"vimdoc",
