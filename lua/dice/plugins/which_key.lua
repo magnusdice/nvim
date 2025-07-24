@@ -1,8 +1,8 @@
 return {
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
 		enabled = false,
+		event = "VeryLazy",
 		opts = {},
 		keys = {
 			{
