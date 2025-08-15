@@ -1,5 +1,4 @@
 return {
-	--  i guess this fix the issue with ale.util not found lmao
 	{
 		"dense-analysis/ale",
 	},
@@ -19,10 +18,6 @@ return {
 	{
 		"mbbill/undotree",
 		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle),
-	},
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"j-hui/fidget.nvim",
