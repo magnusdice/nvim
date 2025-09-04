@@ -60,12 +60,14 @@ return {
 				lspconfig["emmet_ls"].setup({
 					capabilities = capabilities,
 					filetypes = { "html", "css", "php" },
+					-- filetypes = { "html", "css" },
 				})
 			end,
 			["html"] = function()
 				lspconfig["html"].setup({
 					capabilities = capabilities,
 					filetypes = { "html", "php" },
+					-- filetypes = { "html" },
 				})
 			end,
 			["cssls"] = function()
