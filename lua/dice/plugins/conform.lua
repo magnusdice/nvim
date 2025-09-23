@@ -1,3 +1,4 @@
+-- lua/plugins/conform.lua (example)
 return {
 	"stevearc/conform.nvim",
 	config = function()
@@ -10,12 +11,14 @@ return {
 				sql = { "sql-formatter" },
 				html = { "prettier" },
 				python = { "isort", "black" },
-				javascript = { "prettierd", stop_after_first = true },
-				-- javascript = { "prettier" },
+				-- javascript = { "prettierd", stop_after_first = true },
+				javascript = { "prettier" },
 			},
 			format_on_save = {
-				timeout_ms = 500,
-				lsp_format = "fallback",
+				timeout_ms = 2500,
+				lsp_fallback = true,
+				-- timeout_ms = 500,
+				-- lsp_format = "fallback",
 			},
 		})
 	end,

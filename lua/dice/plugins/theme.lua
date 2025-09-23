@@ -20,7 +20,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-		enabled = false,
+		enabled = true,
 		priority = 1000,
 		config = function()
 			vim.cmd.colorscheme("tokyonight-night")
@@ -47,7 +47,7 @@ return {
 	},
 	{
 		"vague2k/vague.nvim",
-		enabled = true,
+		enabled = false,
 		name = "vague",
 		priority = 1000,
 		config = function()

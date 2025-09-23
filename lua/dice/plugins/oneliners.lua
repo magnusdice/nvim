@@ -17,10 +17,7 @@ return {
 	},
 	{
 		"mbbill/undotree",
+		enabled = false,
 		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle),
-	},
-	{
-		"j-hui/fidget.nvim",
-		opts = {},
 	},
 }

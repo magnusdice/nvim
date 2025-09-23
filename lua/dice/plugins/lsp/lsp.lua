@@ -31,8 +31,17 @@ return {
 
 		-- Ensure LSPs are installed
 		mason_lspconfig.setup({
+			-- ensure_installed = {
+			-- 	"intelephense",
+			-- 	"eslint",
+			-- 	"emmet_ls",
+			-- 	"html",
+			-- 	"cssls",
+			-- 	"lua_ls",
+			-- },
 			ensure_installed = {
-				"intelephense",
+				"ts_ls",
+				"psalm",
 				"eslint",
 				"emmet_ls",
 				"html",
@@ -43,17 +52,28 @@ return {
 
 		-- Setup LSP handlers
 		mason_lspconfig.setup_handlers({
-			["intelephense"] = function()
-				lspconfig["intelephense"].setup({
-					capabilities = capabilities,
+			-- ["intelephense"] = function()
+			-- 	lspconfig["intelephense"].setup({
+			-- 		capabilities = capabilities,
+			-- 		filetypes = { "php" },
+			-- 		cmd = { "intelephense", "--stdio" },
+			-- 	})
+			-- end,
+			["psalm"] = function()
+				lspconfig["psalm"].setup({
+					cmd = { "vendor/bin/psalm", "--language-server" },
 					filetypes = { "php" },
-					cmd = { "intelephense", "--stdio" },
+					root_dir = lspconfig.util.root_pattern("composer.json", ".git"),
 				})
 			end,
 			["eslint"] = function()
 				lspconfig["eslint"].setup({
 					capabilities = capabilities,
-					filetypes = { "js" },
+				})
+			end,
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
+					capabilities = capabilities,
 				})
 			end,
 			["emmet_ls"] = function()
