@@ -31,14 +31,6 @@ return {
 
 		-- Ensure LSPs are installed
 		mason_lspconfig.setup({
-			-- ensure_installed = {
-			-- 	"intelephense",
-			-- 	"eslint",
-			-- 	"emmet_ls",
-			-- 	"html",
-			-- 	"cssls",
-			-- 	"lua_ls",
-			-- },
 			ensure_installed = {
 				"ts_ls",
 				"psalm",
@@ -47,18 +39,12 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
+				"basedpyright",
 			},
 		})
 
 		-- Setup LSP handlers
 		mason_lspconfig.setup_handlers({
-			-- ["intelephense"] = function()
-			-- 	lspconfig["intelephense"].setup({
-			-- 		capabilities = capabilities,
-			-- 		filetypes = { "php" },
-			-- 		cmd = { "intelephense", "--stdio" },
-			-- 	})
-			-- end,
 			["psalm"] = function()
 				lspconfig["psalm"].setup({
 					cmd = { "vendor/bin/psalm", "--language-server" },
@@ -88,6 +74,12 @@ return {
 					capabilities = capabilities,
 					filetypes = { "html", "php" },
 					-- filetypes = { "html" },
+				})
+			end,
+			["basedpyright"] = function()
+				lspconfig["basedpyright"].setup({
+					capabilities = capabilities,
+					filetypes = { "py", "python" },
 				})
 			end,
 			["cssls"] = function()
